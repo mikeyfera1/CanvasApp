@@ -1,3 +1,8 @@
 body {
-    background-color: white;
+    background-color: darkgrey;
+}
+
+header {
+    background-color: black;
+    height: 100px;
 }
