@@ -1,8 +1,89 @@
 body {
-    background-color: darkgrey;
+    background-color: #f8f8f8;
 }
 
-header {
-    background-color: black;
-    height: 100px;
+input[type="button"] {
+    background-color: #e0e0e0;
+    color: #333;
+    border: 1px solid #b0b0b0;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+input[type="button"]:hover {
+    background-color: #c0c0c0;
+    color: #111;
+    transform: scale(1.07);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+input[type="button"]:active {
+    background-color: red;
+    color: white;
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+select {
+    appearance: none; 
+    background-color: whitesmoke;
+    border: 2px solid darkgray;
+    border-radius: 5px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    outline: none;
+}
+
+select:hover {
+    border-color: #2c2c2c;
+}
+
+select:focus {
+    border-color: #2c2c2c;
+}
+
+div {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+
+body.dark-mode {
+    background-color: #222; 
+    color: white; 
+}
+
+.dark-mode select, 
+.dark-mode input[type="button"] {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+}
+.dark-mode input[type="button"]:active {
+    background-color: red;
+    color: white;
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+select:hover {
+    border-color: #e0e0e0;
+}
+
+select:focus {
+    border-color: #e0e0e0;
+}
+
+.dark-mode canvas {
+    background-color: #222;
 }

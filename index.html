@@ -6,18 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="canvas.ico">
 
     <title>CanvasApp</title>
 
 </head>
 <!-- The Body of the website -->
- <header>
-    <input type="button" value="Reset!" onclick="reset()"></input>
-    <input type="button" value="Red" onclick ="changeRed()">
- </header>
 <body>
+    <div>
+        <input type="button" value="Reset" onclick="reset()"></input>
+        <input type="button" value="Undo" onclick="undo()"></input>
+        <input type="button" id="mode" value="Dark Mode" onclick="changeMode()"></input>
+        <!-- <input type="button" value="Save" onclick="saveCanvas()"></input> -->
+        <select name="Color" id="color">
+            <option value="black">Black ⚫</option>
+            <option value="white">White ⚪</option>
+            <option value="red">Red 🔴</option>
+            <option value="green">Green 🟢</option>
+            <option value="blue">Blue 🔵</option>
+            <option value="yellow">Yellow 🟡</option>
+            <option value="orange">Orange 🟠</option>
+            <option value="purple">Purple 🟣</option>
+        </select>
+    </div>
     <canvas id="canvas" width="1920" height="1080"></canvas>
 </body>
-<!-- Java Script to make the canvas and draw a rectangle -->
+<!-- Java Script to make the canvas and draw -->
 <script src="script.js"></script>
 </html>
