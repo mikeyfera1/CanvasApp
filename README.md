@@ -16,7 +16,7 @@ CanvasApp is a collaborative drawing web application that allows multiple users 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/CanvasApp.git
+   git clone https://github.com/mikeyfera1/CanvasApp.git
    ```
 2. Navigate to the project directory:
    ```bash
@@ -55,5 +55,5 @@ Contributions are welcome! Feel free to fork the repository and submit a pull re
 
 ## Contact
 
-For questions or suggestions, open an issue on GitHub or reach out via email at your_email@example.com.
+For questions or suggestions, open an issue on GitHub or reach out via email at mikeyfera1@gmail.com.
 
