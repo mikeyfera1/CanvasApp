@@ -92,15 +92,46 @@ function changeMode() {
             document.getElementById("color").value = "black";
         }
     }
+
+    changePixels();
 }
 
-// function saveCanvas() {
-//     let image = canvas.toDataURL("image/png");
-//     let link = document.createElement("a");  
-//     link.href = image;
-//     link.download = "drawing.png";           
-//     link.click();                           
-// }
+function changePixels() {
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imageData.data;
+
+    if (document.getElementById("mode").value == "Light Mode") {
+        for (let i = 0; i < data.length; i += 4) {
+            if (data[i] == 0 && data[i + 1] == 0 && data[i + 2] == 0) {
+                data[i] = 255; 
+                data[i + 1] = 255; 
+                data[i + 2] = 255; 
+            }
+        }
+    }
+
+    if (document.getElementById("mode").value == "Dark Mode") {
+        for (let i = 0; i < data.length; i += 4) {
+            if (data[i] == 255 && data[i + 1] == 255 && data[i + 2] == 255) {
+                data[i] = 0; 
+                data[i + 1] = 0; 
+                data[i + 2] = 0; 
+            }
+        }
+    }
+
+    ctx.putImageData(imageData, 0, 0);
+}
+
+function saveCanvas() {
+    let image = canvas.toDataURL("image/png");
+    let link = document.createElement("a");  
+    link.href = image;
+    let filename = prompt("Enter a filename:", 'Untitled-Image');
+    if (!filename) return;
+    link.download = filename + ".png";           
+    link.click();                           
+}
 
 
 // Can use addEventListener to see when the mouse is up, down, or moving and call the event funciton if neccessary
