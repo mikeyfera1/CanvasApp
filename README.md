@@ -28,7 +28,7 @@ CanvasApp is a collaborative drawing web application that allows multiple users 
    ```
 4. Start the application:
    ```bash
-   npm start
+   node server.js
    ```
 
 ## Usage

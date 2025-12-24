@@ -1,0 +1,22 @@
+{
+  "name": "canvasapp",
+  "version": "1.0.0",
+  "description": "An app to draw anything using different colors",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeyfera1/CanvasApp.git"
+  },
+  "author": "Michael Fera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikeyfera1/CanvasApp/issues"
+  },
+  "homepage": "https://github.com/mikeyfera1/CanvasApp#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
