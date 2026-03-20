@@ -30,6 +30,13 @@
         </select>
     </div>
     <canvas id="canvas" width="1920" height="1080"></canvas>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        socket.on("draw", (data) => {
+            drawStroke(data);
+        });
+    </script>
 </body>
 <!-- Java Script to make the canvas and draw -->
 <script src="script.js"></script>

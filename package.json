@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mikeyfera1/CanvasApp#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
   }
 }

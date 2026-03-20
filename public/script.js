@@ -41,15 +41,29 @@ function startDrawing(event) {
     lastY = event.clientY - 60;
 }
 
-// When currently drawing, get the path from last X and Y and draw a line to the new X and Y
+// Extracted drawing logic so it can be called locally AND from socket
+function drawStroke(data) {
+    ctx.strokeStyle = data.color;
+    ctx.beginPath();
+    ctx.moveTo(data.lastX, data.lastY);
+    ctx.lineTo(data.x, data.y);
+    ctx.stroke();
+}
+
+// When currently drawing, emit to server and draw locally
 function draw(event) {
     if (isDrawing) {
-        ctx.beginPath();
-        ctx.moveTo(lastX, lastY);
-        ctx.lineTo(event.clientX, event.clientY - 60);
-        ctx.stroke();
-        lastX = event.clientX;
-        lastY = event.clientY - 60;        
+        const data = {
+            lastX: lastX,
+            lastY: lastY,
+            x: event.clientX,
+            y: event.clientY - 60,
+            color: ctx.strokeStyle
+        };
+        drawStroke(data);
+        socket.emit("draw", data);
+        lastX = data.x;
+        lastY = data.y;
     }
 }
 
