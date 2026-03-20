@@ -37,9 +37,10 @@ function undo() {
 // Start Drawing function that makes isDrawing true and gets the last X and Y values
 function startDrawing(event) {
     isDrawing = true;
-    lastX = event.clientX;
-    lastY = event.clientY - 60;
+    lastX = event.touches ? event.touches[0].clientX : event.clientX;
+    lastY = event.touches ? event.touches[0].clientY - 60 : event.clientY - 60;
 }
+
 
 // Extracted drawing logic so it can be called locally AND from socket
 function drawStroke(data) {
@@ -53,11 +54,18 @@ function drawStroke(data) {
 // When currently drawing, emit to server and draw locally
 function draw(event) {
     if (isDrawing) {
+        if (event.touches) {
+            event.preventDefault();
+        }
+
+        const x = event.touches ? event.touches[0].clientX : event.clientX;
+        const y = event.touches ? event.touches[0].clientY - 60 : event.clientY - 60;
+
         const data = {
             lastX: lastX,
             lastY: lastY,
-            x: event.clientX,
-            y: event.clientY - 60,
+            x: x,
+            y: y,
             color: ctx.strokeStyle
         };
         drawStroke(data);
@@ -153,3 +161,9 @@ canvas.addEventListener('mousedown', startDrawing);
 canvas.addEventListener('mousedown', changeColor);
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', stopDrawing);
+
+// Add event listener for mobile users
+canvas.addEventListener('touchstart', startDrawing);
+canvas.addEventListener('touchstart', changeColor);
+canvas.addEventListener('touchmove', draw);
+canvas.addEventListener('touchend', stopDrawing);
